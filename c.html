@@ -84,7 +84,6 @@
               input_var.value += "+";
               break;
             }
-
           case "-":
             if (opSeclected(input_var.value)) {
               break;
@@ -130,8 +129,6 @@
       }
 
       function opSeclected(val) {
-        //var temp = document.getElementById("result").value;
-        //str = oper;
         if (
           val.includes("+") ||
           val.includes("-") ||
@@ -139,7 +136,6 @@
           val.includes("*") ||
           val.includes("-/+")
         ) {
-          // console.log();
           return true;
         } else {
           return false;
