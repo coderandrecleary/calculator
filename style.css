@@ -1,0 +1,48 @@
+body{
+    text-align:center;
+    border-style: outset;
+    border-radius: 12px;
+    border-width: 8px;
+    box-sizing: content-box;  
+    width: 250px;
+    height: 350px;
+    margin-left: 650px;
+}
+
+
+h1{
+    text-align:center;
+    font-style: oblique;
+}
+
+.field{
+    text-align:center;
+    padding-bottom:20px;
+    
+}
+
+.rowo {
+    margin-bottom: 20px; 
+} 
+
+.rowt{
+       
+    margin-bottom: 20px;
+    margin-right:50px;
+
+   }
+
+.rowthr{
+    margin-bottom: 20px;
+    margin-right:50px;
+    
+    
+}
+
+.rowf{
+    margin-right:50px;
+    padding-bottom:20px;
+    
+}
+
+

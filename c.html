@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <link rel="stylesheet" href="style.css" /> <title>Calculatorapp</title>
+    <h1>Calculator</h1>
+
+    <div class="field">
+      <input type="text" id="result" placeholder="0" name="display" disabled />
+      <br />
+    </div>
+    <div class="rowo" id="one">
+      <button
+        class="button"
+        type="button"
+        onclick="numFunction(this.value)"
+        value="7"
+      >
+        7
+      </button>
+      <button type="button" onclick="numFunction(this.value)" value="8">
+        8
+      </button>
+      <button type="button" onclick="numFunction(this.value)" value="9">
+        9
+      </button>
+      <button type="button" onclick="operator('-')" id="op" value="-">-</button>
+      <button type="button" onclick="clearscreen()">CE</button>
+    </div>
+    <div class="rowt">
+      <button type="button" onclick="numFunction(this.value)" value="4">
+        4
+      </button>
+      <button type="button" onclick="numFunction(this.value)" value="5">
+        5
+      </button>
+      <button type="button" onclick="numFunction(this.value)" value="6">
+        6
+      </button>
+      <button type="button" onclick="operator('/')" id="op" value="/">/</button>
+    </div>
+    <div class="rowthr">
+      <button type="button" onclick="numFunction(this.value)" value="1">
+        1
+      </button>
+      <button type="button" onclick="numFunction(this.value)" value="2">
+        2
+      </button>
+      <button type="button" onclick="numFunction(this.value)" value="3">
+        3
+      </button>
+      <button type="button" onclick="operator('x')" id="op" value="x">*</button>
+    </div>
+    <div class="rowf">
+      <button type="button" onclick="operator('-/+')">-/+</button>
+      <button type="button" onclick="numFunction(this.value)" value="0">
+        0
+      </button>
+      <button type="button" onclick="compute()">=</button>
+      <button
+        type="button"
+        class="operator"
+        id="op"
+        value="+"
+        onclick="operator('+')"
+      >
+        +
+      </button>
+    </div>
+
+    <script>
+      var isCalComplete = false;
+
+      function clearscreen() {
+        document.getElementById("result").value = "";
+      }
+
+      function operator(operand) {
+        var input_var = document.getElementById("result");
+        switch (operand) {
+          case "+":
+            if (opSeclected(input_var.value)) {
+              break;
+            } else {
+              input_var.value += "+";
+              break;
+            }
+
+          case "-":
+            if (opSeclected(input_var.value)) {
+              break;
+            }
+            input_var.value += "-";
+            break;
+          case "x":
+            if (opSeclected(input_var.value)) {
+              break;
+            }
+            input_var.value += "*";
+            break;
+          case "/":
+            if (opSeclected(input_var.value)) {
+              break;
+            }
+            input_var.value += "/";
+            break;
+          case "-/+":
+            if (opSeclected(input_var.value)) {
+              break;
+            }
+            input_var.value += "-" + input_var.value;
+            break;
+        }
+      }
+
+      function compute() {
+        var input_var = document.getElementById("result");
+        ans = Math.floor(eval(input_var.value));
+        document.getElementById("result").value = ans;
+        isCalComplete = true;
+      }
+
+      function numFunction(num) {
+        if (isCalComplete === true) {
+          clearscreen();
+          isCalComplete = false;
+        }
+        var txt = document.getElementById("result").value;
+        txt = txt + num;
+        document.getElementById("result").value = txt;
+      }
+
+      function opSeclected(val) {
+        //var temp = document.getElementById("result").value;
+        //str = oper;
+        if (
+          val.includes("+") ||
+          val.includes("-") ||
+          val.includes("/") ||
+          val.includes("*") ||
+          val.includes("-/+")
+        ) {
+          // console.log();
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
